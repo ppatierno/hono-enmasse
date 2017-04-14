@@ -13,7 +13,7 @@
   <packaging>pom</packaging>
 
   <properties>
-    <hono.version>0.5-M5-SNAPSHOT</hono.version>
+    <hono.version>0.5-M6-SNAPSHOT</hono.version>
   </properties>
 
 
