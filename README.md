@@ -26,6 +26,8 @@ After deploying EnMasse, all the Eclipse Hono components can be deployed with th
 
 It will deploy the Hono Server and the two available protocol adapters (HTTP REST and MQTT).
 
+![Eclipse Hono deployment](./images/hono_deployment.png)
+
 ## Deploying addresses
 
 In order to make the messaging infrastructure aware of the _telemetry_ and _event_ channels handled by the Eclipse Hono API,
@@ -39,9 +41,16 @@ An example of receiver application is provided by the Eclipse Hono GitHub repo a
 on the official website in the [Getting Started guide](https://www.eclipse.org/hono/getting-started/).
 
 Before doing that, it's needed to create a new "user" using the EnMasse console (i.e. user1@enmasse).
+
+![User creation](./images/new_user.png)
+
 After that, the receiver console application can be launched in the following way :
 
         mvn spring-boot:run -Drun.arguments=--hono.client.host=172.30.90.42,--hono.client.port=5672,--hono.client.trustStorePath=null,--hono.client.username=user1@enmasse,--hono.client.password=pw
+        
+In the following picture, a receiver running and receiving published messages :
+
+![Receiver](./images/receiver.png)
 
 ## Sender
 
