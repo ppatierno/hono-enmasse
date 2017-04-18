@@ -10,7 +10,12 @@ oc create sa enmasse-service-account -n $(oc project -q)
 oc policy add-role-to-user view system:serviceaccount:$(oc project -q):default
 oc policy add-role-to-user edit system:serviceaccount:$(oc project -q):enmasse-service-account
 
-oc process -f https://raw.githubusercontent.com/EnMasseProject/enmasse/master/generated/sasldb-enmasse-template.yaml | oc create -f -
+oc secret new qdrouterd-certs ../certs/server-cert.pem ../certs/server-key.pem
+oc secret add serviceaccount/default secrets/qdrouterd-certs --for=mount
+oc secret new mqtt-certs ../certs/server-cert.pem ../certs/server-key.pem
+oc secret add serviceaccount/default secrets/mqtt-certs --for=mount
+
+oc process -f https://raw.githubusercontent.com/EnMasseProject/enmasse/master/generated/sasldb-tls-enmasse-template.yaml | oc create -f -
 echo ... done
 
 # deploying Eclipse Hono
