@@ -13,6 +13,8 @@ on using _oc_ tools is pretty useful.
 The EnMasse project can be deployed on a running OpenShift cluster using just the following provided script :
 
         enmasse_deploy.sh
+        
+![EnMasse deployment](./images/enmasse_deployment.png)
 
 Or the TLS version if you want to enable clients connecting using TLS protocol :
 
