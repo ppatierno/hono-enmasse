@@ -50,6 +50,7 @@ After that, the receiver console application can be launched in the following wa
 
         mvn spring-boot:run -Drun.arguments=--hono.client.host=172.30.90.42,--hono.client.port=5672,--hono.client.trustStorePath=null,--hono.client.username=user1@enmasse,--hono.client.password=pw
         
+Where the address is related to the _messaging_ router service cluster IP provided by EnMasse.
 In the following picture, a receiver running and receiving published messages :
 
 ![Receiver](./images/receiver.png)
@@ -57,7 +58,14 @@ In the following picture, a receiver running and receiving published messages :
 ## Sender
 
 The sender can be the one provided as example from the Eclipse Hono GitHub repo, an HTTP client or an MQTT client using
-related protocol adapters. Their usage is explained here :
+related protocol adapters.
+As the receiver one, the sender console application can be launched in the following way :
+
+        mvn spring-boot:run -Drun.arguments=--spring.profiles.active=sender,--hono.client.host=172.30.35.38
+
+Where the address is related to the _hono-app_ service cluster IP so the Hono server component.
+
+Regarding the protocol adapters, their usage is explained here :
 
 * [HTTP REST](https://www.eclipse.org/hono/component/rest-adapter/) adapter
 * [MQTT](https://www.eclipse.org/hono/component/mqtt-adapter/) adapter
