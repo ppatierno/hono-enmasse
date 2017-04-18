@@ -18,9 +18,6 @@ oc secret add serviceaccount/default secrets/mqtt-certs --for=mount
 oc process -f https://raw.githubusercontent.com/EnMasseProject/enmasse/master/generated/sasldb-tls-enmasse-template.yaml | oc create -f -
 echo ... done
 
-# deploying Eclipse Hono
-bash hono_deploy.sh
-
 echo ECLIPSE HONO AND ENMASSE DEPLOYED ON OPENSHIFT
 
 # NOTE : to execute for deploying telemetry and event addresses

@@ -13,9 +13,6 @@ oc policy add-role-to-user edit system:serviceaccount:$(oc project -q):enmasse-s
 oc process -f https://raw.githubusercontent.com/EnMasseProject/enmasse/master/generated/sasldb-enmasse-template.yaml | oc create -f -
 echo ... done
 
-# deploying Eclipse Hono
-bash hono_deploy.sh
-
 echo ECLIPSE HONO AND ENMASSE DEPLOYED ON OPENSHIFT
 
 # NOTE : to execute for deploying telemetry and event addresses
