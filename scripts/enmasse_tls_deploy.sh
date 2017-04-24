@@ -15,7 +15,7 @@ oc secret add serviceaccount/default secrets/qdrouterd-certs --for=mount
 oc secret new mqtt-certs ../certs/server-cert.pem ../certs/server-key.pem
 oc secret add serviceaccount/default secrets/mqtt-certs --for=mount
 
-oc process -f https://raw.githubusercontent.com/EnMasseProject/enmasse/master/generated/sasldb-tls-enmasse-template.yaml | oc create -f -
+oc process -f https://github.com/EnMasseProject/enmasse/releases/download/0.8.0/sasldb-tls-enmasse-template.yaml | oc create -f -
 echo ... done
 
 echo ECLIPSE HONO AND ENMASSE DEPLOYED ON OPENSHIFT
